@@ -16,8 +16,8 @@ for fname in *.*; do
   echo "resizing $fname"
   mogrify -quality 95% -write "./resized/$fname" -resize 1600x1600 "$fname"
   
-  # watermarking on bottom left corner
+  # watermarking on bottom left corner, with padding
   echo "watermarking $fname"
-  composite -compose atop -gravity SouthWest mywatermark "./resized/$fname" "./resized/$fname"
+  composite -watermark -gravity SouthWest -geometry +10+10 mywatermark "./resized/$fname" "./resized/$fname"
 
 done
