@@ -1,11 +1,5 @@
-#!/bin/sh
-
-# change directory to the desired one
-cd /path/to/your/folder
-
 # create directory for resized photos. If you don't all originals will be lost
 
-mywatermark = "/path/to/watermark.png"
 
 mkdir resized
 
@@ -18,6 +12,6 @@ for fname in *.*; do
   
   # watermarking on bottom left corner, with padding
   echo "watermarking $fname"
-  composite -watermark -gravity SouthWest -geometry +10+10 mywatermark "./resized/$fname" "./resized/$fname"
+  composite -gravity SouthWest -geometry +10+10 /path/to/watermark.png "./resized/$fname" "./resized/$fname"
 
 done
