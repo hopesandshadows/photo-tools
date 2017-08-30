@@ -1,12 +1,13 @@
 # create directory for resized photos. If you don't all originals will be lost
+# run this file within the directory of images
 
-
+#makes new directory called resize
 mkdir resized
 
-# look up all files - should be .jpg or .JPG
-for fname in *.*; do
+# find all .JPG
+for fname in *.JPG; do
 
-  # this is the resize and slightly sharpen part
+  # resize
   echo "resizing $fname"
   mogrify -quality 95% -write "./resized/$fname" -resize 1600x1600 "$fname"
   
